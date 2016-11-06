@@ -19,7 +19,7 @@ ENV NVM_DIR /.nvm
 ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/v$NODE_VERSION/bin:$NODE_PATH:$PATH
 
-s Default version of Node to be installed; can be overridden
+# Default version of Node to be installed; can be overridden
 RUN git clone https://github.com/creationix/nvm.git $NVM_DIR
 RUN echo ". $NVM_DIR/nvm.sh" >> /etc/bash.bashrc
 
