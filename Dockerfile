@@ -16,6 +16,7 @@ RUN yum -y clean all
 # Default locations for Node Version Manager and version of Node to be installed
 ENV NODE_VERSION 6.9.0
 ENV NVM_DIR /.nvm
+ENV PATH $NVM_DIR/v$NODE_VERSION/bin:$PATH
      
 # Default version of Node to be installed; can be overridden
 RUN git clone https://github.com/creationix/nvm.git $NVM_DIR
@@ -29,7 +30,6 @@ RUN source $NVM_DIR/nvm.sh \
     && ln -s $NVM_DIR/versions/node/v$NODE_VERSION/bin/node /usr/bin/node \
     && ln -s $NVM_DIR/versions/node/v$NODE_VERSION/bin/npm /usr/bin/npm
 
-# Install additional python tools it may need
 RUN pip install --upgrade pip
 RUN pip install requests
 
