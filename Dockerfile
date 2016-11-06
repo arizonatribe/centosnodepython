@@ -3,6 +3,7 @@ MAINTAINER David Nunez <arizonatribe@gmail.com>
 
 # Install python-related tools
 RUN yum install -y \
+     pwgen \
      python \
      python-pip \
      python-setuptools
@@ -27,3 +28,10 @@ RUN source $NVM_DIR/nvm.sh \
     && nvm alias default v$NODE_VERSION \
     && ln -s $NVM_DIR/versions/node/v$NODE_VERSION/bin/node /usr/bin/node \
     && ln -s $NVM_DIR/versions/node/v$NODE_VERSION/bin/npm /usr/bin/npm
+
+# Install additional python tools it may need
+RUN pip install --upgrade pip
+RUN pip install requests
+
+# Install additional nodejs tools it may need
+RUN npm install -g request flightplan
