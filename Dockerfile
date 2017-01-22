@@ -36,4 +36,4 @@ RUN pip install --upgrade pip
 RUN pip install requests
 
 # Install additional nodejs tools it may need
-RUN npm install -g request flightplan
+RUN npm install -g request flightplan bunyan
